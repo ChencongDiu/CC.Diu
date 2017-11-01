@@ -1,1 +1,8 @@
+# Folders #
 /bin/
+/.settings/
+
+# Package Files #
+*.jar
+*.war
+*.ear
