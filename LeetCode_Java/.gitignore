@@ -2,6 +2,9 @@
 /bin/
 /.settings/
 
+# class #
+ListNode.java
+
 # Package Files #
 *.jar
 *.war
