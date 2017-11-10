@@ -21,7 +21,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 	    	HashMap<Character, Integer> map = new HashMap<Character, Integer> ();
 	    	
 	    	for (int i = 0, j = 0; j < s.length(); j++) {
-	    		//move left point if duplicate char is found
+	    		//move left point if duplicate char is found, make sure [i, j] contains no duplication
 	    		if (map.containsKey(s.charAt(j))) {
 	    			i = Math.max(i, map.get(s.charAt(j)) + 1);
 	    		}
