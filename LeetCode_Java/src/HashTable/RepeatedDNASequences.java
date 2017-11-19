@@ -26,6 +26,6 @@ public class RepeatedDNASequences {
                 res.add(sub);
             }
         }
-        return new ArrayList(res);
+        return new ArrayList<String>(res);
     }
 }
