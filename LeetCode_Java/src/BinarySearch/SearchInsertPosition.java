@@ -24,10 +24,17 @@ Output: 0
  */
 public class SearchInsertPosition {
 	public int searchInsert(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] < target) continue;
-            else return i;
+		int l = 0, r = nums.length - 1;
+        while (l <= r) {
+            int mid = (l + r) >>> 1;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
         }
-        return nums.length;
+        return l;
     }
 }
