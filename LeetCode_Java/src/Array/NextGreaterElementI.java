@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.HashMap;
+
 /*
 You are given two arrays (without duplicates) nums1 and nums2 where nums1¡¯s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
 
@@ -25,17 +27,16 @@ The length of both nums1 and nums2 would not exceed 1000.
  */
 public class NextGreaterElementI {
 	public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+		HashMap<Integer, Integer> hm = new HashMap<> ();
+        for (int i = 0; i < nums2.length; i++) {
+            hm.put(nums2[i], i);
+        }
         int[] res = new int[nums1.length];
         for (int i = 0; i < nums1.length; i++) {
-            int index = 0;
-            for (int j = 0; j < nums2.length; j++) {
-                if (nums1[i] == nums2[j]) {
-                    index = j + 1;
-                    while (index < nums2.length && nums2[index] <= nums1[i]) {index++;}
-                    res[i] = (index < nums2.length)? nums2[index]: -1;
-                    break;
-                }
-            }
+            int index = hm.get(nums1[i]);
+            index++;
+            while (index < nums2.length && nums2[index] <= nums1[i]) {index++;}
+            res[i] = (index < nums2.length)? nums2[index]: -1;
         }
         return res;
     }
